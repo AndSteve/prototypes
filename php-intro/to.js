@@ -13,10 +13,9 @@ var variable1 = 'hello';
 //Creating arrays and objects
 var numbers = [3, 5, 16, 3, 4, 18];
 var result = numbers[0];
-for (var i = 0; i < numbers.length; i++) {
+for (var i = 1; i < numbers.length; i++) {
     result += numbers[i];
-}
-;
+};
 $('body').text(result);
 
 //EXERCISE 4 
