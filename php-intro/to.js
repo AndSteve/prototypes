@@ -26,7 +26,7 @@ $('body').text('This is a string' + 'This is another string');
 //EXERCISE 5
 //Using variables as substitutes for their values and changing floating numbers into integers
 var my_float = 3.5;
-var my_int = parseInt(my_float, 10);
+var my_int = Math.floor(my_float);
 var my_float2 = 5.3;
 var my_int2 = parseInt(my_float2, 10);
 
