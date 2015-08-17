@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+    var mySmallNumber = 5;
+    var myString = "5";
+    var myBigNumber = 255;
+    console.log('mySmallNumber == myString is',mySmallNumber == myString);
+    console.log('mySmallNumber === myString is',mySmallNumber === myString);
+    console.log('mySmallNumber < myBigNumber',mySmallNumber < myBigNumber);
+    console.log('mySmallNumber > myBigNumber',mySmallNumber > myBigNumber);
+    //The following console.log function will evaluate to true because they are both 5.
+    console.log((''+mySmallNumber+myString)===(''+myString+mySmallNumber));
+    var myTruth = true;
+    var myLie = false;
+    if(myTruth){
+    	console.log("I'm true!")
+    }else{
+    	console.log("I'm false!")
+    }
+    if(myTruth == myLie){
+    	console.log("I'm true!")
+    }else{
+    	console.log("I'm false!")
+    }
+    if(myLie != myTruth){
+    	console.log("I'm a true lie!")
+    }
+    var myNumber = 88;
+    switch(myNumber){
+    	case  88:
+    		console.log("myNumber is 88!");
+    		break;
+    	case 15:
+    		console.log("myNumber is 15!");
+    		break;
+    	default:
+    		console.log("myNumber is just right.");
+    		break;
+    }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
