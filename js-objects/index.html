@@ -1,19 +1,178 @@
 <!DOCTYPE html>
 <html>
-    <head>
-		<title>JS Objects</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		
-		<script>
-			//Your JS here
 
-		</script>
-    </head>
-	<body>
-		<div id="student-display-area">
-			
-		</div>
-	</body>
+<head>
+    <title>JS Objects</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    //Your JS here
+    ///////////////////////////////////Global Variables////////////////////////////////
+    var student_array = [];
+    var idNum = 0001;
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////Prototype 1/////////////////////////////////////    
+    var student_object = {};
+    student_object.name = "Dan Yell";
+    student_object.grade = 100;
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////Prototype 2/////////////////////////////////////    
+    function add_student() {
+        var firstNamePrompt = prompt('What is student\'s first name?');
+        if(firstNamePrompt === ''){
+            firstNamePrompt = 'noName'
+        };
+        var lastNamePrompt = prompt('What is student\'s last name?');
+        if(lastNamePrompt === ''){
+            lastNamePrompt = 'noName'
+        };
+        var coursePrompt = prompt('What course is the student in?');
+        if(coursePrompt === ''){
+            coursePrompt = 'learnding'
+        };
+        var gradePrompt = prompt('What is your grade?');
+        if(gradePrompt === ''){
+            gradePrompt = '0'
+        };
+        var student_object = {};
+        student_object.first = firstNamePrompt;
+        student_object.last = lastNamePrompt;
+        student_object.idNumber = idNum++;
+        student_object.grade = gradePrompt;
+        student_object.course = coursePrompt;
+        student_object.grade = gradePrompt;
+        student_array.push(student_object);
+        console.log(student_array);
+    }
+    $(document).ready(function() {
+        $("#addStudent").click(function() {
+            add_student();
+        });
+    });
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////Prototype 3/////////////////////////////////////
+    function list_students() {
+        $('#column1').empty();
+        $('#column2').empty();
+        $('#column3').empty();
+        $('#column4').empty();
+        $('#column5').empty();
+        $('#column6').empty();
+        for (var i = 0; i < student_array.length; i++) {
+            var stuIndex = $('<p>', {
+                text: i + 1,
+            });
+            var stuFirst = $('<p>', {
+                text: ' ' +
+                    student_array[i].first,
+            });
+            var stuLast = $('<p>', {
+                text: ' ' +
+                    student_array[i].last,
+            });
+            var stuID = $('<p>', {
+                text: ' ' + student_array[i].idNumber,
+            });
+            var stuCourse = $('<p>', {
+                text: ' ' +
+                    student_array[i].course,
+            });
+            var stuGrade = $('<p>', {
+                    text: ' ' + student_array[i].grade,
+                })
+                //console.log(student_array[i].name + ' ' + student_array[i].grade);
+            $('#column1').append(stuIndex);
+            $('#column2').append(stuLast);
+            $('#column3').append(stuFirst);
+            $('#column4').append(stuID);
+            $('#column5').append(stuCourse);
+            $('#column6').append(stuGrade);
+        }
+    }
+    $(document).ready(function() {
+        $("#refresh-student-data").click(function() {
+            list_students();
+        });
+    });
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////Prototype 4/////////////////////////////////////
+    function delete_student() {
+        var idPrompt = prompt('Please Enter the ID # of the student you want to delete');
+        var idPrompt = idPrompt - 1;
+        if (idPrompt >= student_array.length) {
+            alert('That student does not exist');
+        } else {
+            student_array.splice(idPrompt, 1);
+        }
+    };
+    $(document).ready(function() {
+        $('#delete-student').click(function() {
+            delete_student();
+            list_students();
+            console.log(student_array)
+        });
+    });
+    </script>
+    <style>
+    .container {
+        border: 1px solid blue;
+    }
+    
+    .parentcolumn {
+        font-size: 10px;
+        border-right: 1px solid green;
+    }
+    
+    #column6 {
+        border-right: none;
+    }
+    
+    #columnTitles {
+        border-bottom: 1px solid green;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="student-display-area">
+        <div class="container">
+            <div class="row">
+                <h4>Student List</h4>
+                <button class="btn btn-success" id="addStudent">Add New Student</button>
+                <button class="btn btn-info" id="refresh-student-data">Refresh Student Data</button>
+                <button class="btn btn-danger" id="delete-student">Delete Student</button>
+            </div>
+            <div class="row" id="columnTitles">
+                <div class="col-xs-1">
+                    <h3><small>#</small></h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3><small>Last</small></h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3><small>First</small></h3>
+                </div>
+                <div class="col-xs-2">
+                    <h3><small>ID#</small></h3>
+                </div>
+                <div class="col-xs-2">
+                    <h3><small>Course</small></h3>
+                </div>
+                <div class="col-xs-1">
+                    <h3><small>Grade</small></h3>
+                </div>
+            </div>
+            <div class="row" id="stuRow">
+                <div class="col-xs-1 parentcolumn" id="column1"></div>
+                <div class="col-xs-3 parentcolumn" id="column2"></div>
+                <div class="col-xs-3 parentcolumn" id="column3"></div>
+                <div class="col-xs-2 parentcolumn" id="column4"></div>
+                <div class="col-xs-2 parentcolumn" id="column5"></div>
+                <div class="col-xs-1 parentcolumn" id="column6"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

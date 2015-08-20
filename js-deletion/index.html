@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        ///Creating the sutdent array
+        ///each object in the array is a has 2 key/value pairs with class and name
+        var student_array = [{
+            name: 'John',
+            class: 'Physics'
+        }, {
+            name: 'Jane',
+            class: 'Math'
+        }, {
+            name: 'Joan',
+            class: 'English'
+        }, {
+            name: 'Alex',
+            class: 'English'
+        }, {
+            name: 'Andrew',
+            class: 'English'
+        }, {
+            name: 'Chad',
+            class: 'English'
+        }, {
+            name: 'Daniel',
+            class: 'English'
+        }, {
+            name: 'Darin',
+            class: 'English'
+        }, {
+            name: 'Eric',
+            class: 'English'
+        }, {
+            name: 'Fabian',
+            class: 'English'
+        }];
+        ///Once the document has finished loading the following script will automatically run
+        $(document).ready(function () {
+            //in this for loop the function will loop until it has created a row, name span, and class span for each object
+            //in the student_array.
+            for (var i = 0; i < student_array.length; i++) {
+                var row = $('<div>', {
+                    class: 'student_row',
+                    //each row in the student array get assigned its own 'data-index' value that is not shared with any others.
+                    "data-index": i
+                });
+                var stuName = $('<span>', {
+                    class: 'student_name',
+                    text: student_array[i].name + ' '
+                });
+                var stuClass = $('<span>', {
+                    class: 'student_class',
+                    text: student_array[i].class
+                });
+                //here the objects created during each loop of this function are appended to the HTML.
+                $('#student_container').append(row);
+                $('.student_row:nth-child(' + (i + 1) + ')').append(stuName, stuClass);
+            }
+            //with this click handler a function is called when a student_row class object is clicked
+            //first the function will find the "data-index" attribute of the currently clicked item
+            //it will then log the result to the console and proceed to delete that attribute along with the html object linked to it.
+            $(".student_row").click(function () {
+                var DIndex = $(this).attr("data-index");
+                console.log(DIndex + " was clicked");
+                delete student_array[$(this).attr("data-index")];
+                console.log(student_array);
+                $(this).remove();
+            })
+        });
+    </script>
+</head>
+<body>
+<div id="student_container">
+
+</div>
+
+</body>
+</html>

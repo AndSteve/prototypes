@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+    /*Building an array and looping up through it.*/
+    var j = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+    for (var i = 0; i < j.length; i++) {
+        console.log(j[i]);
+        console.log('i is equal to:' + i);
+    }
+    /*Copied array and count through it both ways.*/
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    for (var i = 0; i < numbers.length; i++) {
+        console.log(numbers[i]);
+    }
+    for (var i = numbers.length - 1; i >= 0; i--) {
+        console.log(numbers[i]);
+    }
+    /*Counted up only odd numbers*/
+    for (var i = 0; i < numbers.length; i += 2) {
+        console.log(numbers[i]);
+        console.log('Only Odd Numbers')
+    }
+    var mixedarray = [4, 56, 11, 13, 97, 22, 7, 36, 19, 5, 8, 10];
+    for (var i = 0; i < mixedarray.length; i += 2) {
+        console.log(mixedarray[i]);
+    }
+    var seats = {seat1: 'Stu', seat2: 'Peggy', seat3: 'LoneStar', seat4: 'George', seat5: 'Sheldon'};
+    var i;
+    for (i in seats){
+    	console.log(seats[i]+'is in'+i);
+    }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

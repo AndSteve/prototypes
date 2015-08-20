@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+    function myMessage() {
+        console.log("This is my first function!");
+    }
+
+    function add(x, y) {
+        var sum = x + y;
+        console.log(x + y);
+        return sum;
+    }
+
+    function greeting(str, num) {
+        console.log("Hello, " + str + " you are " + num + " years old.")
+    }
+    </script>
+</head>
+
+<body>
+    <button type="button" onclick="myMessage()">Clicky clicky!</button>
+    <br>
+    <button type="button" onclick="add(20, 30)">Clicky this one too!</button>
+    <br>
+    <button type="button" onclick="greeting('Andrew', 26)">This is also a button</button>
+</body>
+
+</html>
