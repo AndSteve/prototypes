@@ -91,4 +91,3 @@ function find_greatest_num_and_index(direction) {
     return {greatest: greatest, greatest_index: greatest_index};
 };
 find_greatest_num_and_index(1);
-
