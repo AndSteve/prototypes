@@ -15,6 +15,60 @@ DELETE FROM users_test WHERE username = 'Mandy'
 --
 --Prototype 2
 --
+
+--
+-- Table structure for table `todo_items2`
+--
+
+CREATE TABLE `todo_items2` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `details` varchar(500) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `todo_items2`
+--
+
+INSERT INTO `todo_items2` (`id`, `title`, `details`, `timestamp`, `user_id`) VALUES
+(1, 'Wake up', 'Alarm helps', 10, 12),
+(2, 'Take a Shower', 'Don''t forget to rinse', 10, 12),
+(3, 'Brush teeth', 'Minty fresh', 10, 12),
+(4, 'Get dressed', 'what to wear', 10, 12),
+(5, 'Feed dog', 'she loves her new food', 10, 12),
+(7, 'Lock the front door', 'deter thieves', 10, 12),
+(8, 'Start the car', 'check mirrors, set music, settle in for the drive', 10, 12),
+(9, 'Drive to class', 'please let there be no traffic', 10, 12),
+(10, 'Get ready for another day', 'learning-fuze woo woo', 10, 12),
+(11, 'Learn MySQL', 'Its fun', 10, 12);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `todo_items2`
+--
+ALTER TABLE `todo_items2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `todo_items2`
+--
+ALTER TABLE `todo_items2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+
 SELECT * FROM todo_items2 WHERE user_id = 12
 Showing rows 0 - 9 (10 total, Query took 0.0003 seconds.)
 
