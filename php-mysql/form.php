@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>php-mysql prototype</title>
+    <title>Input Form</title>
 </head>
 <body>
 <form action="index_insert.php" method="post">
