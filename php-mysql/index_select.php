@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('mysql_connect.php');
 $query = 'SELECT * FROM todo_items2 WHERE user_id = 12';
 $result = mysqli_query($conn, $query);
